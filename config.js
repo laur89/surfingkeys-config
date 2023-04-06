@@ -37,6 +37,11 @@ settings.focusAfterClosed = 'last';
 settings.scrollStepSize = 200;
 settings.tabsThreshold = 0;
 settings.modeAfterYank = 'Normal';
+settings.smoothScroll = false;  // tridactyl is not smooth, let's try to be consistent
+settings.scrollFriction = 10;  // see https://github.com/brookhong/Surfingkeys/issues/1124#issuecomment-572362566
+//settings.startToShowEmoji = 0;  // pop up emoji suggestions as soon as you input colon
+//settings.useLocalMarkdownAPI = false;  // use github markdown api for parsing markdown, not local/built-in parser
+//settings.omnibarSuggestion = true;  // Show suggestion URLs
 
 // ---- Map -----
 // --- Hints ---
@@ -80,8 +85,8 @@ map('<Ctrl-b>', 'U');  // scroll full page up
 //map('<Ctrl-f>', 'P');  // scroll full page down -- looks like we can't overwrite browser-native binding
 
 // Next/Prev Page
-map('K', '[[');
-map('J', ']]');
+//map('K', '[[');
+//map('J', ']]');
 
 // Open Chrome Flags
 mapkey('gF', '#12Open Chrome Flags', () => { tabOpenLink("chrome://flags/"); });
@@ -99,6 +104,8 @@ map('<', '<<');
 // Tab Next/Prev
 map('<Alt-j>', 'R');
 map('<Alt-k>', 'E');
+map('J', 'R');
+map('K', 'E');
 
 // --- Misc ---
 // Yank URL w/ one press (disables other yx binds)
@@ -106,6 +113,9 @@ map('y', 'yy');
 
 // Change focused frame
 map('gf', 'w');
+
+// toggle surfingkeys (Alt-s is the default)
+map('<Ctrl-i>', '<Alt-s>');
 
 // ---- Unmap -----
 // Proxy Stuff
